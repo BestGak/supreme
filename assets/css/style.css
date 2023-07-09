@@ -289,6 +289,9 @@ main {
     flex-direction: column;
     transition: all .5s;
 }
+.services__item a {
+    text-decoration: none;
+}
 .services__item:nth-of-type(-n + 4) {
     border-top: 1px solid #454D58;
 }
@@ -530,6 +533,7 @@ form .btn {
 .footer__container nav ul a {
     font-size: 16px;
     color: #fff;
+    text-decoration: none;
 }
 .footer__container nav ul a:hover {
     color: #F53645;
