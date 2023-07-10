@@ -348,10 +348,30 @@ main {
     outline: none;
 }
 .contact__wrapper {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; */
     gap: 20px;
+    word-wrap: break-word;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+      "tel tel facebook facebook"
+      "mail mail mail mail"
+      "location location location location"
+    ;
+}
+.contact__wrapper a:nth-of-type(1) {
+    grid-area: tel;
+}
+.contact__wrapper a:nth-of-type(2) {
+    grid-area: facebook;
+}
+.contact__wrapper a:nth-of-type(3) {
+    grid-area: mail;
+}
+.contact__wrapper a:nth-of-type(4) {
+    grid-area: location;
 }
 .contact__wrapper a {
     min-height: 210px;
@@ -367,9 +387,6 @@ main {
     font-size: 12px;
     font-weight: 500;
     width: 100%;
-}
-.contact__wrapper a:nth-of-type(-n + 2) {
-    width: 46%;
 }
 .contact__wrapper a:hover {
     background-color: transparent;
@@ -447,6 +464,9 @@ main {
     font-size: 1em;
     color: #F53645;
     background-color: transparent;
+}
+.projects .swiper-slide img {
+    max-width: 700px;
 }
 .review .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
     color: #fff;
@@ -556,7 +576,7 @@ form .btn {
     display: none;
 }
 .menu-btn span {
-	width: 30px;
+	width: 20px;
 	height: 2px;
 	position: absolute;
 	top: 50%;
@@ -566,10 +586,10 @@ form .btn {
 	transition: all 0.5s;
 }
 .menu-btn span:nth-of-type(2) {
-	top: calc(50% - 5px);
+	top: calc(50% - 7px);
 }
 .menu-btn span:nth-of-type(3) {
-	top: calc(50% + 5px);
+	top: calc(50% + 7px);
 }
 
 .active .menu-btn span:nth-of-type(1) {
@@ -590,13 +610,16 @@ form .btn {
 	width: 100%;
 	height: calc(100vh - 81px);
 	padding: 100px 20px;
-    background: #0D0D0D;
+    background-color: #000e26;
 	transform: translateX(-100%);
 	transition: transform 0.5s; 
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .active header {
-    background-color: #0D0D0D;
+    background-color: #000e26;
 }
 .active .menu {
 	transform: translateX(0);
@@ -676,8 +699,14 @@ text-decoration: none;
         max-width: 400px;
         object-fit: cover;
     }
+    .contact__form {
+        max-width: 600px;
+    }
 }
 @media screen and (max-width: 1023px){
+    .projects .swiper-slide img {
+        max-width: 100%;
+    }
     .services__item {
         padding: 40px 20px;
     }
@@ -743,8 +772,12 @@ text-decoration: none;
         flex-direction: column;
         gap: 20px;
     }
-    .contact__wrapper a:nth-of-type(-n + 3) {
-        width: 30%;
+    .contact__wrapper {
+        gap: 19px;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas:
+            "tel tel facebook facebook mail mail"
+            "location location location location location location";
     }
     .contact__form {
         max-width: 100%;
@@ -764,14 +797,28 @@ text-decoration: none;
         justify-content: center;
     }
     .projects .swiper-slide img {
-        max-height: 256px;
-        min-height: 256px;
+        max-height: 560px;
+        min-height: 560px;
         object-fit: cover;
         width: 100%;
     }
     
 }
 @media screen and (max-width: 767px) {
+    .contact__wrapper {
+        gap: 20px;
+        word-wrap: break-word;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+          "tel tel facebook facebook"
+          "mail mail mail mail"
+          "location location location location"
+        ;
+    }
+    .services__item:nth-of-type(n + 8) {
+        border-bottom: 1px solid #F53645;
+    }
     .review .swiper-slide {
         padding: 60px 20px;
     }
@@ -822,14 +869,15 @@ text-decoration: none;
     .contact__form {
         padding: 30px 20px;
     }
-    .contact__wrapper a:nth-of-type(-n + 2) {
-        width: 47%;
-    }
     .contact__wrapper a:nth-of-type(3) {
         width: 100%;
     }
 }
 @media screen and (max-width: 550px) {
+    .projects .swiper-slide img {
+        max-height: 256px;
+        min-height: 256px;
+    }
     .contact__form-title {
         font-size: 24px;
     }
